@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Complete Seu Álbum da Copa – Figurinhas de Todos os Países</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Oswald:wght@400;600;700&family=Roboto:wght@400;500;700&display=swap');
+
+  :root {
+    --verde: #009c3b;
+    --verde-escuro: #006d2a;
+    --amarelo: #FFD700;
+    --amarelo-escuro: #e6c200;
+    --vermelho: #c0392b;
+    --preto: #0d0d0d;
+    --cinza: #1a1a1a;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Roboto', sans-serif;
+    background: var(--preto);
+    color: white;
+    overflow-x: hidden;
+  }
+
+  /* ── BARRA URGÊNCIA ── */
+  .barra-urgencia {
+    background: var(--vermelho);
+    color: white;
+    text-align: center;
+    padding: 10px 16px;
+    font-family: 'Oswald', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    animation: pulse 2s infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.85; }
+  }
+
+  /* ── HERO ── */
+  .hero {
+    background: linear-gradient(160deg, #0a0a0a 0%, #001a0a 50%, #0a0a00 100%);
+    padding: 60px 20px 80px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: "📖";
+    position: absolute;
+    font-size: 280px;
+    opacity: 0.04;
+    top: -20px;
+    right: -40px;
+    pointer-events: none;
+  }
+
+  .hero-eyebrow {
+    display: inline-block;
+    background: var(--vermelho);
+    color: white;
+    font-family: 'Oswald', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 3px;
+    padding: 6px 16px;
+    border-radius: 20px;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+  }
+
+  .hero h1 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(2.6rem, 8vw, 5rem);
+    line-height: 0.95;
+    color: white;
+    margin-bottom: 16px;
+  }
+
+  .hero h1 em { color: var(--amarelo); font-style: normal; }
+  .hero h1 strong { color: var(--vermelho); font-weight: 400; }
+
+  .hero-sub {
+    font-size: clamp(1rem, 3vw, 1.2rem);
+    color: #ccc;
+    max-width: 580px;
+    margin: 0 auto 36px;
+    line-height: 1.6;
+  }
+
+  .hero-sub span { color: var(--amarelo); font-weight: 700; }
+
+  /* Bandeiras decorativas */
+  .bandeiras {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-bottom: 36px;
+    font-size: 1.8rem;
+    flex-wrap: wrap;
+    max-width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* CTA box */
+  .cta-box {
+    background: linear-gradient(135deg, #1a1200 0%, #0d0a00 100%);
+    border: 2px solid var(--amarelo);
+    border-radius: 16px;
+    padding: 28px 24px;
+    max-width: 420px;
+    margin: 0 auto;
+  }
+
+  .preco-de {
+    color: #888;
+    font-size: 0.85rem;
+    text-decoration: line-through;
+    margin-bottom: 4px;
+  }
+
+  .preco-por {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 3.8rem;
+    color: var(--amarelo);
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+
+  .preco-desc {
+    color: #aaa;
+    font-size: 0.8rem;
+    margin-bottom: 20px;
+  }
+
+  .btn-comprar {
+    display: block;
+    width: 100%;
+    background: linear-gradient(135deg, var(--verde) 0%, var(--verde-escuro) 100%);
+    color: var(--amarelo);
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.4rem;
+    letter-spacing: 2px;
+    padding: 18px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.2s;
+    text-decoration: none;
+    text-align: center;
+    box-shadow: 0 4px 20px rgba(0,156,59,0.4);
+  }
+
+  .btn-comprar:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 28px rgba(0,156,59,0.6);
+  }
+
+  .garantias {
+    display: flex;
+    justify-content: center;
+    gap: 14px;
+    margin-top: 14px;
+    font-size: 0.72rem;
+    color: #888;
+    flex-wrap: wrap;
+  }
+
+  /* ── DOR ── */
+  .secao-dor {
+    background: #0f0f0f;
+    padding: 70px 20px;
+    text-align: center;
+  }
+
+  .dor-titulo {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(1.8rem, 5vw, 2.8rem);
+    color: white;
+    margin-bottom: 12px;
+  }
+
+  .dor-titulo em { color: var(--vermelho); font-style: normal; }
+
+  .dor-texto {
+    color: #aaa;
+    max-width: 560px;
+    margin: 0 auto 40px;
+    line-height: 1.7;
+    font-size: 0.95rem;
+  }
+
+  .dor-cards {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    flex-wrap: wrap;
+    max-width: 700px;
+    margin: 0 auto;
+  }
+
+  .dor-card {
+    background: #1a1a1a;
+    border: 1px solid #2a2a2a;
+    border-left: 3px solid var(--vermelho);
+    border-radius: 10px;
+    padding: 16px 20px;
+    text-align: left;
+    flex: 1;
+    min-width: 200px;
+  }
+
+  .dor-card p { color: #bbb; font-size: 0.85rem; line-height: 1.5; }
+  .dor-card strong { color: white; }
+
+  /* ── SOLUÇÃO ── */
+  .secao-solucao {
+    padding: 70px 20px;
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .secao-titulo {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(2rem, 5vw, 3rem);
+    color: white;
+    margin-bottom: 8px;
+  }
+
+  .secao-titulo em { color: var(--amarelo); font-style: normal; }
+
+  .secao-sub {
+    color: #aaa;
+    font-size: 0.9rem;
+    margin-bottom: 48px;
+  }
+
+  .cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 20px;
+    text-align: left;
+  }
+
+  .card {
+    background: #1a1a1a;
+    border: 1px solid #2a2a2a;
+    border-radius: 14px;
+    padding: 24px 20px;
+    transition: border-color 0.2s;
+  }
+
+  .card:hover { border-color: var(--amarelo); }
+  .card-icon { font-size: 2rem; margin-bottom: 12px; }
+
+  .card h3 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 1rem;
+    color: var(--amarelo);
+    margin-bottom: 8px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+
+  .card p { color: #aaa; font-size: 0.85rem; line-height: 1.6; }
+
+  /* ── PAÍSES ── */
+  .secao-paises {
+    background: #111;
+    padding: 70px 20px;
+    text-align: center;
+  }
+
+  .paises-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    max-width: 700px;
+    margin: 0 auto 40px;
+  }
+
+  .pais-item {
+    background: #1a1a1a;
+    border: 1px solid #2a2a2a;
+    border-radius: 8px;
+    padding: 8px 14px;
+    font-size: 0.82rem;
+    color: #ccc;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    transition: border-color 0.2s;
+  }
+
+  .pais-item:hover { border-color: var(--amarelo); color: white; }
+
+  .mais-paises {
+    color: var(--amarelo);
+    font-family: 'Oswald', sans-serif;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+    margin-top: 8px;
+  }
+
+  /* ── DIVISOR ── */
+  .divisor {
+    background: linear-gradient(90deg, transparent, var(--amarelo), transparent);
+    height: 1px;
+    margin: 0 20px;
+  }
+
+  /* ── DEPOIMENTOS ── */
+  .depoimentos { padding: 70px 20px; }
+
+  .deps-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 20px;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .dep {
+    background: #1a1a1a;
+    border-radius: 14px;
+    padding: 22px 20px;
+    border: 1px solid #2a2a2a;
+    position: relative;
+  }
+
+  .dep::before {
+    content: '"';
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 4rem;
+    color: var(--amarelo);
+    position: absolute;
+    top: 8px;
+    left: 16px;
+    line-height: 1;
+    opacity: 0.3;
+  }
+
+  .dep-texto {
+    color: #ccc;
+    font-size: 0.88rem;
+    line-height: 1.6;
+    margin-bottom: 16px;
+    padding-top: 20px;
+  }
+
+  .dep-autor { display: flex; align-items: center; gap: 10px; }
+
+  .dep-avatar {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: var(--verde);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--amarelo);
+    font-family: 'Oswald', sans-serif;
+  }
+
+  .dep-nome { font-weight: 700; font-size: 0.85rem; color: white; }
+  .dep-cidade { font-size: 0.75rem; color: #666; }
+  .dep-estrelas { color: var(--amarelo); font-size: 0.8rem; margin-top: 2px; }
+
+  /* ── GARANTIA ── */
+  .secao-garantia {
+    background: #111;
+    padding: 60px 20px;
+    text-align: center;
+  }
+
+  .garantia-box {
+    background: linear-gradient(135deg, #1a1200 0%, #0d0a00 100%);
+    border: 1.5px solid var(--amarelo);
+    border-radius: 16px;
+    padding: 32px 24px;
+    max-width: 480px;
+    margin: 0 auto;
+  }
+
+  .garantia-box h3 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.8rem;
+    color: var(--amarelo);
+    margin-bottom: 12px;
+  }
+
+  .garantia-box p { color: #bbb; font-size: 0.88rem; line-height: 1.6; }
+
+  /* ── CTA FINAL ── */
+  .cta-final {
+    background: linear-gradient(160deg, #001a0a 0%, #0a0a00 100%);
+    padding: 80px 20px;
+    text-align: center;
+    border-top: 1px solid #1a1a00;
+  }
+
+  .cta-final h2 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(2.2rem, 6vw, 4rem);
+    margin-bottom: 12px;
+    line-height: 1;
+  }
+
+  .cta-final h2 em { color: var(--amarelo); font-style: normal; }
+
+  .cta-final p {
+    color: #aaa;
+    font-size: 0.95rem;
+    margin-bottom: 36px;
+    max-width: 480px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.6;
+  }
+
+  /* ── RODAPÉ ── */
+  footer {
+    background: #080808;
+    padding: 24px 20px;
+    text-align: center;
+    color: #444;
+    font-size: 0.75rem;
+    border-top: 1px solid #1a1a1a;
+  }
+
+  footer a { color: #666; text-decoration: none; }
+</style>
+</head>
+<body>
+
+<!-- Barra urgência -->
+<div class="barra-urgencia">
+  ⏰ COPA 2026 ACONTECENDO AGORA · COMPLETE SEU ÁLBUM HOJE MESMO
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-eyebrow">⚽ Copa do Mundo 2026</div>
+  <h1>Faltam figurinhas<br>no seu <em>álbum?</em><br><strong>Resolva agora.</strong></h1>
+  <p class="hero-sub">Baixe o PDF com as figurinhas de <span>todos os 48 países da Copa</span> e imprima em casa. Sem filas, sem sair de casa, sem gastar fortuna.</p>
+
+  <div class="bandeiras">
+    🇧🇷 🇦🇷 🇫🇷 🇩🇪 🇵🇹 🇪🇸 🇲🇦 🇯🇵 🇺🇸 🇲🇽 🇳🇱 🇧🇪 🇭🇷 🇸🇳 🇺🇾
+  </div>
+
+  <div class="cta-box">
+    <div class="preco-de">De R$ 29,90</div>
+    <div class="preco-por">R$ 9,99</div>
+    <div class="preco-desc">pagamento único · todos os 48 países · download imediato</div>
+    <a href="#" class="btn-comprar">📥 QUERO COMPLETAR MEU ÁLBUM AGORA</a>
+    <div class="garantias">
+      <span>🔒 Pagamento seguro</span>
+      <span>📥 Download imediato</span>
+      <span>✅ 7 dias de garantia</span>
+    </div>
+  </div>
+</section>
+
+<!-- DOR -->
+<section class="secao-dor">
+  <h2 class="dor-titulo">Você conhece essa <em>frustração?</em></h2>
+  <p class="dor-texto">Você comprou o álbum, colou centenas de figurinhas, está quase lá — mas algumas simplesmente não aparecem nos pacotinhos. E o tempo da Copa está passando.</p>
+
+  <div class="dor-cards">
+    <div class="dor-card">
+      <p>😤 <strong>Já gastou uma fortuna</strong> em pacotinhos e ainda faltam figurinhas específicas</p>
+    </div>
+    <div class="dor-card">
+      <p>🔍 <strong>Procura nas bancas</strong> e não acha as figurinhas que precisa</p>
+    </div>
+    <div class="dor-card">
+      <p>⏰ <strong>A Copa vai acabar</strong> e seu álbum vai ficar incompleto pra sempre</p>
+    </div>
+  </div>
+</section>
+
+<div class="divisor"></div>
+
+<!-- SOLUÇÃO -->
+<section class="secao-solucao">
+  <h2 class="secao-titulo">A solução mais <em>simples</em> do mundo</h2>
+  <p class="secao-sub">Um PDF. Você baixa, imprime e cola. Problema resolvido.</p>
+
+  <div class="cards-grid">
+    <div class="card">
+      <div class="card-icon">🌍</div>
+      <h3>Todos os 48 países</h3>
+      <p>Figurinhas de todas as seleções da Copa 2026 — do Brasil ao Marrocos, da Argentina ao Japão.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">🖨️</div>
+      <h3>Imprime em casa</h3>
+      <p>Qualquer impressora serve. Papel comum ou fotográfico. Você imprime só as que faltam, sem desperdício.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">📐</div>
+      <h3>Tamanho oficial Panini</h3>
+      <p>Figurinhas no tamanho exato do álbum original. Encaixam perfeitamente em qualquer espaço vazio.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">⚡</div>
+      <h3>Download imediato</h3>
+      <p>Comprou, baixou, imprimiu. Em menos de 10 minutos você já tem as figurinhas na mão.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">♾️</div>
+      <h3>Imprime quantas vezes quiser</h3>
+      <p>Errou o corte? Imprime de novo. Quer dar pro sobrinho? Imprime mais um. Sem custo adicional.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">💰</div>
+      <h3>Economia real</h3>
+      <p>Um pacotinho custa R$ 4,50 e você não escolhe o que vem. Aqui você paga uma vez e escolhe tudo.</p>
+    </div>
+  </div>
+</section>
+
+<!-- PAÍSES -->
+<section class="secao-paises">
+  <h2 class="secao-titulo" style="margin-bottom:8px;">Todos os países <em>incluídos</em></h2>
+  <p class="secao-sub" style="margin-bottom:32px;">48 seleções · centenas de jogadores</p>
+
+  <div class="paises-grid">
+    <div class="pais-item">🇧🇷 Brasil</div>
+    <div class="pais-item">🇦🇷 Argentina</div>
+    <div class="pais-item">🇫🇷 França</div>
+    <div class="pais-item">🇩🇪 Alemanha</div>
+    <div class="pais-item">🇵🇹 Portugal</div>
+    <div class="pais-item">🇪🇸 Espanha</div>
+    <div class="pais-item">🇲🇦 Marrocos</div>
+    <div class="pais-item">🇯🇵 Japão</div>
+    <div class="pais-item">🇺🇸 Estados Unidos</div>
+    <div class="pais-item">🇲🇽 México</div>
+    <div class="pais-item">🇳🇱 Holanda</div>
+    <div class="pais-item">🇧🇪 Bélgica</div>
+    <div class="pais-item">🇭🇷 Croácia</div>
+    <div class="pais-item">🇸🇳 Senegal</div>
+    <div class="pais-item">🇺🇾 Uruguai</div>
+    <div class="pais-item">🇨🇴 Colômbia</div>
+  </div>
+  <p class="mais-paises">+ 32 países mais incluídos no pacote completo</p>
+</section>
+
+<div class="divisor"></div>
+
+<!-- DEPOIMENTOS -->
+<section class="depoimentos">
+  <h2 class="secao-titulo" style="text-align:center;margin-bottom:8px;">Quem já <em>completou</em> o álbum</h2>
+  <p class="secao-sub" style="text-align:center;margin-bottom:36px;">Resultados reais de quem usou</p>
+  <div class="deps-grid">
+    <div class="dep">
+      <p class="dep-texto">Faltavam 12 figurinhas no álbum do meu filho. Comprei o PDF, imprimi em 10 minutos e ele completou na mesma noite. Ele ficou feliz demais!</p>
+      <div class="dep-autor">
+        <div class="dep-avatar">M</div>
+        <div>
+          <div class="dep-nome">Marcos T.</div>
+          <div class="dep-cidade">São Paulo, SP</div>
+          <div class="dep-estrelas">★★★★★</div>
+        </div>
+      </div>
+    </div>
+    <div class="dep">
+      <p class="dep-texto">Estava procurando a figurinha do Mbappe há semanas. Aqui eu imprimi na hora. Valeu muito mais do que ficar comprando pacotinho sem parar.</p>
+      <div class="dep-autor">
+        <div class="dep-avatar">J</div>
+        <div>
+          <div class="dep-nome">Juliana R.</div>
+          <div class="dep-cidade">Rio de Janeiro, RJ</div>
+          <div class="dep-estrelas">★★★★★</div>
+        </div>
+      </div>
+    </div>
+    <div class="dep">
+      <p class="dep-texto">Minha filha estava quase desistindo do álbum. Com esse PDF ela completou tudo em dois dias. Melhor investimento da Copa!</p>
+      <div class="dep-autor">
+        <div class="dep-avatar">F</div>
+        <div>
+          <div class="dep-nome">Felipe A.</div>
+          <div class="dep-cidade">Curitiba, PR</div>
+          <div class="dep-estrelas">★★★★★</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GARANTIA -->
+<section class="secao-garantia">
+  <div class="garantia-box">
+    <div style="font-size:3rem;margin-bottom:12px;">🛡️</div>
+    <h3>Garantia de 7 dias</h3>
+    <p>Se por qualquer motivo você não ficar satisfeito, devolvemos 100% do seu dinheiro. Sem perguntas, sem burocracia. O risco é todo nosso.</p>
+  </div>
+</section>
+
+<!-- CTA FINAL -->
+<section class="cta-final">
+  <h2>Complete seu álbum<br><em>hoje mesmo</em></h2>
+  <p>Não deixe a Copa acabar com espaços vazios no seu álbum. Baixe agora e imprima as figurinhas que faltam em menos de 10 minutos.</p>
+  <div class="cta-box" style="max-width:380px;margin:0 auto;">
+    <div class="preco-de">De R$ 29,90</div>
+    <div class="preco-por">R$ 9,99</div>
+    <div class="preco-desc">pagamento único · todos os 48 países · download imediato</div>
+    <a href="#" class="btn-comprar">📥 QUERO COMPLETAR MEU ÁLBUM AGORA</a>
+    <div class="garantias">
+      <span>🔒 Pagamento seguro</span>
+      <span>📥 Download imediato</span>
+      <span>✅ 7 dias de garantia</span>
+    </div>
+  </div>
+</section>
+
+<!-- RODAPÉ -->
+<footer>
+  <p>© 2026 Figurinhas da Copa · Todos os direitos reservados</p>
+  <p style="margin-top:6px;"><a href="#">Política de Privacidade</a> · <a href="#">Termos de Uso</a> · <a href="#">Suporte</a></p>
+  <p style="margin-top:10px;color:#333;font-size:0.7rem;">Este produto é um material imprimível para uso pessoal.</p>
+</footer>
+
+</body>
+</html>
